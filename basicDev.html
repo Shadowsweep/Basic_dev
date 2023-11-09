@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BasicDev</title>
+    <style>
+          .main{
+            height: 100vh;
+            width: 100vw;
+            display: grid;
+            place-items: center;
+        }
+
+        .container{
+            height: 80vh;
+            width: 90vw;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        }
+
+        .container h1{
+            width: 75vw;
+            padding: 2vh;
+            background: cyan;
+            padding-left: 4vw;
+            font-size: 2.5rem;
+            margin-top: 5vh;
+        }
+        
+        .container input{
+            height: 10vh;
+            width: 70vw;
+            font-size: 1.5rem;
+            font-weight: 700;
+            transition: all .5s ease-in-out;
+            display: block;
+            margin: auto;
+            border: none;box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+        }
+
+
+        .container input:focus{
+            border-radius: 9em;
+            outline: none;
+        }
+
+        button{
+            height: 10vh;
+            width: 50vw;
+            font-size: 2rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: block;
+            margin: auto;
+            margin-top: 7vh;
+            border: none;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+            animation: anime 1.7s linear infinite;
+        }
+
+        @keyframes anime {
+            0%, 100%{
+                scale: 1;
+                border: 1 px solid black;
+            }
+
+            50%{
+                scale: 1.1435;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="container">
+            <h1>Enter first Name</h1>
+            <input class="inp" type="text" placeholder="Kya Naam Bataya">
+            <button id="toggleButton">Click Me</button>
+        </div>
+        <div class="box" style="display: none;">
+            <div style="display: flex; justify-content: space-evenly;"><h1 class="full">Hello</h1><h1 class="tag"></h1><h1>Jogi</h1></div>
+            <video id="videoPlayer" width="320" height="240" controls>
+                <source src="d41b9f79.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+
+    <script>
+        const toggleButton = document.getElementById('toggleButton');
+        const Inp = document.querySelector('.inp');
+        const container = document.querySelector('.container');
+        const box = document.querySelector('.box');
+        const videoPlayer = document.getElementById('videoPlayer');
+        const Tag = document.querySelector('.tag');
+
+        toggleButton.addEventListener('click', function() {
+            container.style.display = 'none';
+            box.style.display = 'block';
+            videoPlayer.play();
+            Tag.innerHTML = Inp.value;
+        });
+    </script>
+</body>
+</html>
